@@ -1,8 +1,8 @@
-package com.polytech.interactionservice.controller;
+package com.polytech.interactions_service.controller;
 
-import com.polytech.interactionservice.dto.ReviewRequest;
-import com.polytech.interactionservice.model.Review;
-import com.polytech.interactionservice.service.ReviewService;
+import com.polytech.interactions_service.dto.ReviewRequest;
+import com.polytech.interactions_service.model.Review;
+import com.polytech.interactions_service.service.ReviewService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

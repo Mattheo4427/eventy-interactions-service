@@ -1,9 +1,9 @@
-package com.polytech.interactionservice.service;
+package com.polytech.interactions_service.service;
 
-import com.polytech.interactionservice.dto.MessageRequest;
-import com.polytech.interactionservice.model.Message;
-import com.polytech.interactionservice.model.enums.MessageType;
-import com.polytech.interactionservice.repository.MessageRepository;
+import com.polytech.interactions_service.dto.MessageRequest;
+import com.polytech.interactions_service.model.Message;
+import com.polytech.interactions_service.model.enums.MessageType;
+import com.polytech.interactions_service.repository.MessageRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 

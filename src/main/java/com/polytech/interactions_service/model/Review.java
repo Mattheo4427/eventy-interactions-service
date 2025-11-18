@@ -1,7 +1,7 @@
-package com.polytech.interactionservice.model;
+package com.polytech.interactions_service.model;
 
-import com.polytech.interactionservice.model.enums.ReviewStatus;
-import com.polytech.interactionservice.model.enums.ReviewType;
+import com.polytech.interactions_service.model.enums.ReviewStatus;
+import com.polytech.interactions_service.model.enums.ReviewType;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;

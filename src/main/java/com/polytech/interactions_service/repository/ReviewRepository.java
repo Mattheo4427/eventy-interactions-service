@@ -1,0 +1,12 @@
+// --- ReviewRepository.java ---
+package com.polytech.interactions_service.repository;
+
+import com.polytech.interactions_service.model.Review;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+import java.util.List;
+
+@Repository
+public interface ReviewRepository extends JpaRepository<Review, Long> {
+    List<Review> findByReceiverId(String receiverId);
+}

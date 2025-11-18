@@ -1,10 +1,10 @@
-package com.polytech.interactionservice.service;
+package com.polytech.interactions_service.service;
 
-import com.polytech.interactionservice.dto.ReviewRequest;
-import com.polytech.interactionservice.model.Review;
-import com.polytech.interactionservice.model.enums.ReviewStatus;
-import com.polytech.interactionservice.model.enums.ReviewType;
-import com.polytech.interactionservice.repository.ReviewRepository;
+import com.polytech.interactions_service.dto.ReviewRequest;
+import com.polytech.interactions_service.model.Review;
+import com.polytech.interactions_service.model.enums.ReviewStatus;
+import com.polytech.interactions_service.model.enums.ReviewType;
+import com.polytech.interactions_service.repository.ReviewRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 

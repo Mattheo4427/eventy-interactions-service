@@ -1,6 +1,6 @@
-package com.polytech.interactionservice.repository;
+package com.polytech.interactions_service.repository;
 
-import com.polytech.interactionservice.model.Message;
+import com.polytech.interactions_service.model.Message;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 import java.util.List;
@@ -14,26 +14,5 @@ public interface MessageRepository extends JpaRepository<Message, Long> {
     List<Message> findBySenderIdAndReceiverId(String senderId, String receiverId);
 }
 
-// --- ReviewRepository.java ---
-package com.polytech.interactionservice.repository;
 
-import com.polytech.interactionservice.model.Review;
-import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.stereotype.Repository;
-import java.util.List;
 
-@Repository
-public interface ReviewRepository extends JpaRepository<Review, Long> {
-    List<Review> findByReceiverId(String receiverId);
-}
-
-// --- ReportRepository.java ---
-package com.polytech.interactionservice.repository;
-
-import com.polytech.interactionservice.model.Report;
-import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.stereotype.Repository;
-
-@Repository
-public interface ReportRepository extends JpaRepository<Report, Long> {
-}

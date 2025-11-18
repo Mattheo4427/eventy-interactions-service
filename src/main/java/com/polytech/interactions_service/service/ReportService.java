@@ -1,9 +1,9 @@
-package com.polytech.interactionservice.service;
+package com.polytech.interactions_service.service;
 
-import com.polytech.interactionservice.dto.ReportRequest;
-import com.polytech.interactionservice.model.Report;
-import com.polytech.interactionservice.model.enums.ReportStatus;
-import com.polytech.interactionservice.repository.ReportRepository;
+import com.polytech.interactions_service.dto.ReportRequest;
+import com.polytech.interactions_service.model.Report;
+import com.polytech.interactions_service.model.enums.ReportStatus;
+import com.polytech.interactions_service.repository.ReportRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 

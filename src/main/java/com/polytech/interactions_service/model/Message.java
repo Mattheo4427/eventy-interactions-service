@@ -1,6 +1,6 @@
-package com.polytech.interactionservice.model;
+package com.polytech.interactions_service.model;
 
-import com.polytech.interactionservice.model.enums.MessageType;
+import com.polytech.interactions_service.model.enums.MessageType;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;

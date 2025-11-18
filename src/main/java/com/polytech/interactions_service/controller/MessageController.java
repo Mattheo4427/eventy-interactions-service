@@ -1,8 +1,8 @@
-package com.polytech.interactionservice.controller;
+package com.polytech.interactions_service.controller;
 
-import com.polytech.interactionservice.dto.MessageRequest;
-import com.polytech.interactionservice.model.Message;
-import com.polytech.interactionservice.service.MessageService;
+import com.polytech.interactions_service.dto.MessageRequest;
+import com.polytech.interactions_service.model.Message;
+import com.polytech.interactions_service.service.MessageService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

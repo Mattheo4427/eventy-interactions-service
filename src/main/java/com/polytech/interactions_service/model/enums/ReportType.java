@@ -1,4 +1,4 @@
-package com.polytech.interactionservice.model.enums;
+package com.polytech.interactions_service.model.enums;
 
 public enum ReportType {
     SPAM,

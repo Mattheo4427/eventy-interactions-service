@@ -1,6 +1,6 @@
-package com.polytech.interactionservice.dto;
+package com.polytech.interactions_service.dto;
 
-import com.polytech.interactionservice.model.enums.ReportType;
+import com.polytech.interactions_service.model.enums.ReportType;
 import lombok.Data;
 
 @Data

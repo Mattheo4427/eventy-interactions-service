@@ -1,4 +1,4 @@
-package com.polytech.interactionservice.config;
+package com.polytech.interactions_service.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

@@ -1,4 +1,4 @@
-package com.polytech.interactionservice.dto;
+package com.polytech.interactions_service.dto;
 
 import lombok.Data;
 
