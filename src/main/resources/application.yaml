@@ -1,0 +1,38 @@
+server:
+  port: ${INTERACTION_SERVICE_PORT:8083}
+
+spring:
+  application:
+    # IMPORTANT: Ce nom DOIT correspondre à celui de la gateway ("lb://interaction-service")
+    name: interaction-service
+
+  # Configuration de la base de données
+  datasource:
+    url: jdbc:postgresql://${DB_HOST:localhost}:${DB_PORT:5432}/${DB_NAME:interaction_db}
+    username: ${DB_USER:polytech}
+    password: ${DB_PASSWORD:password}
+    driver-class-name: org.postgresql.Driver
+  
+  # Configuration JPA
+  jpa:
+    hibernate:
+      ddl-auto: update # 'update' pour le dev, 'validate' ou 'none' pour la prod
+    show-sql: true
+    properties:
+      hibernate.dialect: org.hibernate.dialect.PostgreSQLDialect
+
+  # Configuration de la sécurité (Resource Server)
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          # URL du realm Keycloak, lue depuis les variables d'environnement
+          issuer-uri: ${KEYCLOAK_ISSUER_URI:http://localhost:8090/realms/eventy-realm}
+
+# Configuration du client Eureka
+eureka:
+  client:
+    service-url:
+      defaultZone: ${EUREKA_DEFAULT_ZONE:http://localhost:8761/eureka/}
+  instance:
+    prefer-ip-address: true
