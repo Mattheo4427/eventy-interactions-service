@@ -23,7 +23,7 @@ WORKDIR /app
 # Copie du JAR généré depuis l'étape de build
 # Le nom du jar généré dépend de l'artifactId et de la version dans le pom.xml
 # Le wildcard '*' assure que ça marche même si la version change
-COPY --from=builder /app/target/interaction-service-*.jar app.jar
+COPY --from=builder /app/target/interactions-service-*.jar app.jar
 
 # Expose le port défini pour ce service (8083 par défaut)
 EXPOSE 8083
