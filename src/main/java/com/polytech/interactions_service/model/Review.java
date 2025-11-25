@@ -10,6 +10,7 @@ import lombok.NoArgsConstructor;
 import org.hibernate.annotations.CreationTimestamp;
 
 import java.time.LocalDateTime;
+import java.util.UUID;
 
 @Entity
 @Table(name = "reviews")
@@ -31,7 +32,7 @@ public class Review {
     private String receiverId;
 
     @Column(name = "transaction_id", nullable = false)
-    private Long transactionId;
+    private UUID transactionId;
 
     @Column(nullable = false)
     private Integer rating;

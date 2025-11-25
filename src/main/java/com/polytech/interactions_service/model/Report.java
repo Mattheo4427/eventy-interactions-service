@@ -10,6 +10,7 @@ import lombok.NoArgsConstructor;
 import org.hibernate.annotations.CreationTimestamp;
 
 import java.time.LocalDateTime;
+import java.util.UUID;
 
 @Entity
 @Table(name = "reports")
@@ -31,10 +32,10 @@ public class Report {
     private String reportedUserId;
 
     @Column(name = "reported_ticket_id")
-    private Long reportedTicketId;
+    private UUID reportedTicketId;
 
     @Column(name = "reported_transaction_id")
-    private Long reportedTransactionId;
+    private UUID reportedTransactionId;
 
     @Enumerated(EnumType.STRING)
     @Column(name = "report_type", nullable = false)
