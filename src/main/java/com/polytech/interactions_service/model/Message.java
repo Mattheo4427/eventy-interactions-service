@@ -52,4 +52,13 @@ public class Message {
     @Enumerated(EnumType.STRING)
     @Column(name = "message_type", nullable = false)
     private MessageType messageType;
+
+    @Column(name = "conversation_id")
+    private String conversationId;
+
+    @Column(name = "related_ticket_id")
+    private String relatedTicketId;
+
+    @Column(name = "related_event_id")
+    private String relatedEventId;
 }

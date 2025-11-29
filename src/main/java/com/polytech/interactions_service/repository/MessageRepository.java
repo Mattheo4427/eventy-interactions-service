@@ -12,6 +12,8 @@ public interface MessageRepository extends JpaRepository<Message, Long> {
     
     // Trouver la conversation entre deux personnes (optionnel, plus complexe)
     List<Message> findBySenderIdAndReceiverId(String senderId, String receiverId);
+
+    List<Message> findByConversationIdOrderByDateSentAsc(String conversationId);
 }
 
 

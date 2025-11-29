@@ -1,6 +1,10 @@
 package com.polytech.interactions_service.controller;
 
+import com.polytech.interactions_service.dto.ConversationResponse;
+import com.polytech.interactions_service.dto.CreateConversationRequest;
 import com.polytech.interactions_service.dto.MessageRequest;
+import com.polytech.interactions_service.dto.SendMessageRequest;
+import com.polytech.interactions_service.model.Conversation;
 import com.polytech.interactions_service.model.Message;
 import com.polytech.interactions_service.service.MessageService;
 import lombok.RequiredArgsConstructor;
@@ -19,7 +23,43 @@ public class MessageController {
 
     private final MessageService messageService;
 
-    // ENVOYER UN MESSAGE
+    // --- CONVERSATIONS ---
+
+    @PostMapping("/conversations")
+    public ResponseEntity<Conversation> createConversation(
+            @RequestBody CreateConversationRequest request,
+            @AuthenticationPrincipal Jwt principal) {
+        String userId = principal.getSubject();
+        return ResponseEntity.ok(messageService.createConversation(userId, request));
+    }
+
+    @GetMapping("/conversations")
+    public ResponseEntity<List<ConversationResponse>> getMyConversations(@AuthenticationPrincipal Jwt principal) {
+        String userId = principal.getSubject();
+        return ResponseEntity.ok(messageService.getMyConversations(userId));
+    }
+
+    @GetMapping("/conversations/{id}/messages")
+    public ResponseEntity<List<Message>> getConversationMessages(
+            @PathVariable String id,
+            @AuthenticationPrincipal Jwt principal) {
+        String userId = principal.getSubject();
+        return ResponseEntity.ok(messageService.getConversationMessages(id, userId));
+    }
+
+    @PostMapping("/conversations/{id}/messages")
+    public ResponseEntity<Void> sendMessageToConversation(
+            @PathVariable String id,
+            @RequestBody SendMessageRequest request,
+            @AuthenticationPrincipal Jwt principal) {
+        String userId = principal.getSubject();
+        messageService.sendMessageToConversation(userId, id, request.getContent());
+        return ResponseEntity.status(HttpStatus.CREATED).build();
+    }
+
+    // --- LEGACY / DIRECT MESSAGES ---
+
+    // ENVOYER UN MESSAGE (Legacy)
     @PostMapping
     public ResponseEntity<Void> sendMessage(
             @RequestBody MessageRequest request,

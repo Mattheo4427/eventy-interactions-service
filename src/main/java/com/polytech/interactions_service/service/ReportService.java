@@ -27,4 +27,19 @@ public class ReportService {
 
         reportRepository.save(report);
     }
+
+    public java.util.List<Report> getAllReports() {
+        return reportRepository.findAll();
+    }
+
+    public void updateReportStatus(Long reportId, ReportStatus status, String adminId, String adminAction) {
+        Report report = reportRepository.findById(reportId)
+                .orElseThrow(() -> new RuntimeException("Report not found"));
+        
+        report.setStatus(status);
+        report.setAdminId(adminId);
+        report.setAdminAction(adminAction);
+        
+        reportRepository.save(report);
+    }
 }

@@ -9,6 +9,11 @@ import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.oauth2.jwt.Jwt;
 import org.springframework.web.bind.annotation.*;
 
+import com.polytech.interactions_service.model.Report;
+import com.polytech.interactions_service.model.enums.ReportStatus;
+import java.util.List;
+import java.util.Map;
+
 @RestController
 @RequestMapping("/reports") // URL Finale: /api/interactions/reports
 @RequiredArgsConstructor
@@ -26,5 +31,22 @@ public class ReportController {
         return ResponseEntity.status(HttpStatus.CREATED).build();
     }
     
-    // Note: Les méthodes GET pour lister les reports seraient réservées aux admins
+    @GetMapping("/admin/all")
+    public ResponseEntity<List<Report>> getAllReports() {
+        return ResponseEntity.ok(reportService.getAllReports());
+    }
+
+    @PutMapping("/admin/{id}/status")
+    public ResponseEntity<Void> updateReportStatus(
+            @PathVariable Long id,
+            @RequestBody Map<String, String> payload,
+            @AuthenticationPrincipal Jwt principal) {
+        
+        String adminId = principal.getSubject();
+        ReportStatus status = ReportStatus.valueOf(payload.get("status"));
+        String adminAction = payload.get("adminAction");
+        
+        reportService.updateReportStatus(id, status, adminId, adminAction);
+        return ResponseEntity.ok().build();
+    }
 }
